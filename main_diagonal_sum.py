@@ -54,5 +54,3 @@ def solution_main_diag_sum(matrix):
     # append row[index] in daig_nums[]
                     diag_nums.append(matrix[i][j])
     return sum(diag_nums)
-    # return sum diag_nums
-print (solution_main_diag_sum(matrix))
