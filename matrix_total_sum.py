@@ -24,4 +24,3 @@ def solution_column_sum(matrix):
     for row in matrix:
         sum_list.append(row[0])
     return sum(sum_list)
-print (solution_column_sum(matrix))
