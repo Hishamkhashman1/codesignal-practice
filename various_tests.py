@@ -460,8 +460,8 @@
 #
 # False
 # Example 1
-s1 = "aabbcc"
-s2 = "ccbbaa"
+# s1 = "aabbcc"
+# s2 = "ccbbaa"
 #
 # Output:
 #
@@ -476,19 +476,138 @@ s2 = "ccbbaa"
 # in both strings.
 
 # array solution
+#
+# def solution_array(s1,s2):
+#     if sorted(s1) == sorted(s2):
+#         return True
+#     return False
+#
+# def solution_dict(s1,s2):
+#     counts_s1 = {}
+#     counts_s2 = {}
+#     for c in s1:
+#         counts_s1[c] = counts_s1.get(c,0) +1
+#     for c in s2:
+#         counts_s2[c] = counts_s2.get(c,0) +1
+#     return True if counts_s1 == counts_s2 else False 
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Realistic Q3-lite (Hashmap + Arrays)
+#
+# Given a list of integers:
+#
+# numbers
+#
+# Return:
+#
+# True
+#
+# if there exist two different elements whose sum equals 10.
+#
+# Otherwise return:
+#
+# False
+# Example 1
+# numbers = [1,4,3,1]
+# #i
+# Output:
+#
+# True
+#
+# because:
+#
+# 1 + 9 = 10
+# target = 10
+# def solution(numbers, target):
+#     sums = {}
+#     for i, n in enumerate(numbers):
+#         difference = target - n
+#         if difference in sums:
+#             return True
+#         sums[n] = i
+#     return False
+#
 
-def solution_array(s1,s2):
-    if sorted(s1) == sorted(s2):
-        return True
-    return False
-print(solution_array(s1,s2))
 
-def solution_dict(s1,s2):
-    counts_s1 = {}
-    counts_s2 = {}
-    for c in s1:
-        counts_s1[c] = counts_s1.get(c,0) +1
-    for c in s2:
-        counts_s2[c] = counts_s2.get(c,0) +1
-    return True if counts_s1 == counts_s2 else False 
-print(solution_dict(s1,s2))
+
+# def solution(numbers, target):
+#     hashmap = {}
+#     for i, number in enumerate(numbers):
+#         difference = target - number
+#         if difference in hashmap:
+#             return [hashmap[difference],i]
+#         hashmap[number] = i
+#     return None
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Q2/Q3 — Count Pairs Equal to Target
+#
+# Given:
+#
+# numbers = [1, 4, 6, 9]
+# target = 10
+# #
+# # Return the number of pairs whose sum equals the target.
+# #
+# # Example 1
+# # numbers = [1,4,6,9]
+# # target = 10
+# #
+# # Pairs:
+# #
+# # 1 + 9
+# # 4 + 6
+# #
+# # Output:
+# #
+# # 2
+# #
+# def solution(numbers, target):
+#     count = 0
+#     seen = {}
+#     for i, n in enumerate(numbers):
+#         difference = target - n
+#         if difference in seen:
+#             count += 1
+#         seen[n] = i
+#     return count
+# print (solution(numbers,target))
+#---------------------------------------------------------------------------------------------------------------------------------------------------------
+# Q4 — Lookup Table
+#
+# Given an array of unique integers numbers, return the number of pairs of indices (i, j) such that:
+#
+# i <= j
+#
+# and:
+#
+# numbers[i] + numbers[j]
+#
+# is a power of 2.
+#
+# Powers of 2 include:
+#
+# 1, 2, 4, 8, 16, 32, ...
+# Example 1
+# numbers = [1, -1, 2, 3]
+#
+# Output:
+#
+# 5
+#
+# Valid pairs:
+#
+# (-1, 2) = 1
+# (1, 1) = 2
+# (-1, 3) = 2
+# (1, 3) = 4
+# (2, 2) = 4
+#
+# def solution(numbers):
+#     totals = 0
+#     for i, n in enumerate(numbers):
+#         for j, n in enumerate(numbers):
+#             if i <= j:
+#                 sum = numbers[j] + numbers[i]
+#                 if sum >0 and bin(sum).count("1") == 1:
+#                     totals += 1
+#     return totals
+# print (solution(numbers))
