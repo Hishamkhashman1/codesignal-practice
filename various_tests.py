@@ -223,7 +223,7 @@
 #
 # 1,1,1
 #
-# is the longest run.
+#is the longest run.
 # def solution(numbers):
 #     current_count = 1
 #     max_count = 1
@@ -236,4 +236,259 @@
 #             max_count = current_count
 #
 #     return max_count
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Q3 — Replace Each Element With Neighbor Sum
 #
+# You are given a list of integers numbers.
+#
+# Return a new list result where each element is replaced by the sum of itself and its immediate neighbors.
+#
+# If a neighbor does not exist, ignore it.
+#
+# Example 1
+# numbers = [4, 0, 1, -2, 3]
+#
+# Output:
+#
+# [4, 5, -1, 2, 1]
+#
+# Explanation:
+#
+# result[0] = 4 + 0 = 4
+# result[1] = 4 + 0 + 1 = 5
+# result[2] = 0 + 1 + (-2) = -1
+# result[3] = 1 + (-2) + 3 = 2
+# result[4] = -2 + 3 = 1
+# Example 2
+# numbers = [10]
+#
+# Output:
+#
+# [10]
+#
+# def solution(numbers):
+#     result =[]
+#     for i in range(len(numbers)):
+#         if 0 <= i-1 and i+1 < len(numbers):
+#             total = numbers[i] + numbers[i-1] + numbers[i+1]
+#             result.append(total)
+#         else:
+#             if i == 0:
+#                 total = numbers[i] + numbers[i+1]
+#                 result.append(total)
+#         if i == (len(numbers)-1):
+#             total = numbers[len(numbers)-1] + numbers [len(numbers)-2]
+#             result.append(total)
+#     return result
+#---------------------------------------------------------------------------------------------------------------------------------------------
+# Dictionary Frequency count
+
+
+# # Given:
+#
+# numbers = [1,2,2,3,3,3,4]
+#
+# #Return a dictionary with key= numbers and values = count:
+#
+# # {
+# #  1:1,
+# #  2:2,
+# #  3:3,
+# #  4:1
+# # }
+# dictionary_numbers = dict(enumerate(numbers))
+#
+# # print (dictionary_numbers)
+# #
+# # result_dict = {}
+# #
+# # for n in numbers:
+# #     if n in result_dict:
+# #         result_dict[n] += 1
+# #     else:
+# #         result_dict[n] = 1
+# # print (result_dict)
+#
+# def solution(numbers):
+#     count_dict = {}
+#     for n in numbers:
+#         if n in count_dict:
+#             count_dict[n] +=1
+#         else:
+#             count_dict[n] = 1
+#     return count_dict
+# print(solution(numbers))
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------
+#Exercise 2 — Most Frequent Character
+#
+# Given:
+#
+# text = "banana"
+#
+# Return:
+#
+# "a"
+#
+# because:
+#
+# a -> 3
+# n -> 2
+# b -> 1
+#
+# Target:
+#
+# 5 minutes
+#
+# Hint:
+#
+# max(dictionary, key=dictionary.get)
+# def solution(text):
+#     result_dict = {}
+#     for c in text:
+#         if c in result_dict:
+#             result_dict[c] += 1
+#         else:
+#             result_dict[c] = 1
+#     return max(result_dict, key=result_dict.get)
+# print (solution(text))
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
+# Exercise 3 — First Character Appearing Twice
+# text = "abccba"
+
+# return the first character appearing twice
+
+# def solution(text):
+#     seen = []
+#     for c in text:
+#         if c in seen:
+#             return c
+#         else:
+#             seen.append(c)
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Exercise 4 — Count Distinct Values
+# Given:
+#
+# numbers = [1,2,2,3,3,3,4]
+# #
+# # Return:
+# #
+# # 3
+# def solution(numbers):
+#     seen = []
+#     count = 0
+#     for n in numbers:
+#         if n not in seen:
+#             seen.append(n)
+#             count += 1
+#     return count
+# print (solution(numbers))
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Exercise 5 — Dictionary Warm-up
+
+# Given:
+#
+# numbers = [5,5,5,2,2,7]
+#
+# Return:
+#
+# 2
+#
+# because:
+#
+# 7 -> 1 occurrence
+# 2 -> 2 occurrences
+# 5 -> 3 occurrences
+#
+# and we want the number with the lowest frequency.
+#
+# def solution(numbers):
+#     dict = {}
+#     for n in numbers:    
+#         if n in dict:
+#             dict[n] += 1
+#         else:
+#             dict[n] = 1
+#     return min(dict, key=dict.get)
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# First Non-Repeating Character (try dictionary)
+# Given:
+#
+# text
+#
+# Return the first character that appears exactly once.
+#
+# If none exist, return:
+#
+# "_"
+# Example
+# text = "abacaad"
+# #
+# # Output:
+# #
+# # "c"
+#
+# def solution(text):
+#     for c in text:
+#         if text.count(c) == 1:
+#             return c
+#
+# def solution_dict(text):
+#     counts = {}
+#     for c in text:
+#         counts[c] = counts.get(c,0) +1
+#     for c in text:
+#         if counts[c] == 1:
+#             return c
+#     return "_"
+# print(solution_dict(text))
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Q2 — Character Frequencies Match
+
+# Given two strings:
+#
+# s1
+# s2
+#
+# Return:
+#
+# True
+#
+# if every character appears the same number of times in both strings.
+#
+# Otherwise return:
+#
+# False
+# Example 1
+s1 = "aabbcc"
+s2 = "ccbbaa"
+#
+# Output:
+#
+# True
+#
+# because:
+#
+# a -> 2
+# b -> 2
+# c -> 2
+#
+# in both strings.
+
+# array solution
+
+def solution_array(s1,s2):
+    if sorted(s1) == sorted(s2):
+        return True
+    return False
+print(solution_array(s1,s2))
+
+def solution_dict(s1,s2):
+    counts_s1 = {}
+    counts_s2 = {}
+    for c in s1:
+        counts_s1[c] = counts_s1.get(c,0) +1
+    for c in s2:
+        counts_s2[c] = counts_s2.get(c,0) +1
+    return True if counts_s1 == counts_s2 else False 
+print(solution_dict(s1,s2))
