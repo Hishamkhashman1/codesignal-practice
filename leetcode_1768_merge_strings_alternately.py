@@ -78,7 +78,7 @@ def solution(word1, word2):
         combined.append(word2[i])
 
     combined.append(word1[min(len(word1),len(word2)):])
-    combined.append(word2[min(len(word1),len(word1)):])
+    combined.append(word2[min(len(word1),len(word2)):])
 
     return "".join(combined)
 
