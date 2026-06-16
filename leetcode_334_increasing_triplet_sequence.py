@@ -46,22 +46,41 @@ nums =[20,100,10,12,5,13]
 #
 # print (solution(nums))
 
-def solution_on2(nums):
-    for j in range(1, len(nums) -1):
-        left_smaller = False
-        right_bigger = False
+# def solution_on2(nums):
+#     for j in range(1, len(nums) -1):
+#         left_smaller = False
+#         right_bigger = False
+#
+#         for i in range(0, j):
+#             if nums[i] < nums [j] :
+#                 left_smaller = True
+#
+#         for k in range (j +1, len(nums)):
+#             if nums [j] < nums [k] :
+#                 right_bigger = True
+#
+#         if left_smaller and right_bigger:
+#             return True
+#
+#     return False
+#
+# print (solution_on2(nums))
 
-        for i in range(0, j):
-            if nums[i] < nums [j] :
-                left_smaller = True
+def solution_On0(nums):
+    first_seen = float("inf")
+    second_seen = float("inf")
 
-        for k in range (j +1, len(nums)):
-            if nums [j] < nums [k] :
-                right_bigger = True
+    for n in nums:
+        if n <= first_seen:
+            first_seen = n
 
-        if left_smaller and right_bigger:
+        elif n <= second_seen:
+            second_seen = n
+
+        else:
             return True
-
     return False
 
-print (solution_on2(nums))
+print (solution_On0(nums))
+
+
