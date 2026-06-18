@@ -94,13 +94,42 @@ chars = ["a","a","a","b","b","a","a"]
 # print (solution(chars))
 
 def solution (chars):
-    count = 1
+    current_count = 0
     chars_tupple = []
-    for i in range (len(chars)-1):
-        if chars[i] == chars[i + 1]:
-            count +=1
-        chars_tupple.append((chars[i],count))
-    print (chars_tupple)
+    current_chars = chars[0]
+    flat_list = []
+    
+    for c in chars:
+        if c == current_chars:
+            current_count +=1
+        else:
+            chars_tupple.append((current_chars, current_count))
+
+            current_chars = c
+
+            current_count = 1
+    chars_tupple.append((current_chars,current_count))
+
+
+    for item in chars_tupple:
+        value = item[0]
+        counts = item[1]
+        flat_list.append(value)
+        if counts >0:
+            flat_list.append(counts)
+
+
+    chars[:] = flat_list
+
+    chars_str = ''.join(chars)
+
+    chars[:] = chars_str
+
+    return len(chars)
+
+    
+
+
 
 print (solution(chars))
 
