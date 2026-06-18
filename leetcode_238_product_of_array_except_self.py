@@ -27,26 +27,27 @@
 # 2 <= nums.length <= 105
 # -30 <= nums[i] <= 30
 # The input is generated such that answer[i] is guaranteed to fit in a 32-bit integer.
-import math
+# import math
 nums = [1,2,3,4]
 
-def solution(nums):
-    products = []
+# def solution(nums):
+#     products = []
+#
+#     for i in range (len(nums)):
+#         # if i == 0:
+#         #     product = math.prod(nums[i+1 : len(nums)])
+#         #     products.append(product)
+#         # elif i == -1:
+#         #     product = math.prod(nums[0 : -2])
+#         #     products.append(product)
+#         #
+#         # else:
+#         product = math.prod(nums[:i] + nums[i+1 :len(nums)])
+#         products.append(product)
+#
+#
+#     return products
 
-    for i in range (len(nums)):
-        # if i == 0:
-        #     product = math.prod(nums[i+1 : len(nums)])
-        #     products.append(product)
-        # elif i == -1:
-        #     product = math.prod(nums[0 : -2])
-        #     products.append(product)
-        #
-        # else:
-        product = math.prod(nums[:i] + nums[i+1 :len(nums)])
-        products.append(product)
+# print (solution(nums))
 
-
-    return products
-
-print (solution(nums))
 
