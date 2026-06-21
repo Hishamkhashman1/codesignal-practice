@@ -30,25 +30,43 @@
 import math
 nums = [1,2,3,4]
 
-def solution(nums):
-    products = []
+# def solution(nums):
+#     products = []
+#
+#     for i in range (len(nums)):
+#         # if i == 0:
+#         #     product = math.prod(nums[i+1 : len(nums)])
+#         #     products.append(product)
+#         # elif i == -1:
+#         #     product = math.prod(nums[0 : -2])
+#         #     products.append(product)
+#         #
+#         # else:
+#         product = math.prod(nums[:i] + nums[i+1 :len(nums)])
+#         products.append(product)
+#
+#
+#     return products
+#
+# print (solution(nums))
 
+def solution_on (nums):
+    products = [1] * len(nums)
+
+    left = 1
     for i in range (len(nums)):
-        # if i == 0:
-        #     product = math.prod(nums[i+1 : len(nums)])
-        #     products.append(product)
-        # elif i == -1:
-        #     product = math.prod(nums[0 : -2])
-        #     products.append(product)
-        #
-        # else:
-        product = math.prod(nums[:i] + nums[i+1 :len(nums)])
-        products.append(product)
+        products[i] = left
+        left *= nums[i]
 
+    right = 1
+    for i in range (len(nums) -1, -1, -1):
+        products[i] *= right
+        right *= nums[i]
 
     return products
+print (solution_on(nums))
 
-print (solution(nums))
+
 
 
 
