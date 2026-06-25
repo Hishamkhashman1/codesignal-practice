@@ -30,43 +30,55 @@
 s = "aaaaaa"
 t = "bbaaaa"
 
-def solution(s,t):
-    s_pass = []
-    t_pass = []
+# my solution which works for the example cases 
 
-    if s == "":
-        return True
-
-
-    for c in s:
-        if c in t:
-            s_pass.append(c)
-
-    for i in range (len(s)):
-        target_char = s[i]
-
-        for j in range (len(t)):
-            if t[j] == target_char:
-                t_pass.append((target_char,j))
-
-
-    t_indexed = []
-
-    for item in t_pass:
-        index = item[1]
-        t_indexed.append(index)
-
+# def solution(s,t):
+#     s_pass = []
+#     t_pass = []
+#
+#     if s == "":
+#         return True
+#
+#
+#     for c in s:
+#         if c in t:
+#             s_pass.append(c)
+#
+#     for i in range (len(s)):
+#         target_char = s[i]
+#
+#         for j in range (len(t)):
+#             if t[j] == target_char:
+#                 t_pass.append((target_char,j))
+#
+#
+#     t_indexed = []
+#
+#     for item in t_pass:
+#         index = item[1]
+#         t_indexed.append(index)
+#
     # for i in range (len(t_indexed)-2):
     #     if t_indexed[i] < t_indexed[i+1] < t_indexed[i+2]:
     #         return True
     # return False
-    #
 
 
+#
+#
+#     print (s_pass)
+#     print (t_pass)
+#     print (t_indexed)
+# print (solution(s,t))
 
-    print (s_pass)
-    print (t_pass)
-    print (t_indexed)
+# classic two pointer solution
+
+def solution(s,t):
+    i = 0
+
+    for c in t:
+        if i < len(s) and c == s[i]:
+            i += 1
+    return i == len(s)
+
 print (solution(s,t))
-
-
