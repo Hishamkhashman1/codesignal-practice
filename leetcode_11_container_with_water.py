@@ -31,3 +31,7 @@
 # n == height.length
 # 2 <= n <= 105
 # 0 <= height[i] <= 104
+
+#loop for first value more or equal to the rest of all values
+#calculate the volume in the range
+
