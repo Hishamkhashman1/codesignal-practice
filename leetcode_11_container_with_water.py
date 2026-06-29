@@ -35,3 +35,9 @@
 #loop for first value more or equal to the rest of all values
 #calculate the volume in the range
 
+height = [1,8,6,2,5,4,8,3,7]
+
+def solution(height):
+    for i in range (len(height)):
+        if 
+
