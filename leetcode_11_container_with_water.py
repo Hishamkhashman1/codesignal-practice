@@ -38,6 +38,24 @@
 height = [1,8,6,2,5,4,8,3,7]
 
 def solution(height):
-    for i in range (len(height)):
-        if 
+    max_area = 0
+    left = 0
+    right = len(height) - 1
 
+    while left < right:
+        # Calculate the area formed by the lines at left and right pointers
+        width = right - left
+        current_height = min(height[left], height[right])
+        current_area = width * current_height
+
+        # Update max_area if the current area is larger
+        max_area = max(max_area, current_area)
+
+        # Move the pointer of the shorter line inward
+        if height[left] < height[right]:
+            left += 1
+        else:
+            right -= 1
+
+    return max_area
+print (solution(height))
