@@ -36,18 +36,21 @@
 # 1 <= nums[i] <= 109
 # 1 <= k <= 109
 
-nums = [3,5,1,5]
-k = 2
+nums = [1,2,3,4]
+k = 5
 
 
 def solution(nums, k):
     count = 0
-    nums.sort()
+    nums.sort() # will it work without sorting? I think it will not work without sorting because we need to find pairs that sum up to k, and sorting helps us efficiently find those pairs using the two-pointer technique.
     left = 0
     right = len(nums) - 1
+    # print (right)
 
     while left < right:
         current_sum = nums[left] + nums[right]
+        print (nums[left], nums[right])
+        print (current_sum)
         if current_sum == k:
             count += 1
             left += 1
