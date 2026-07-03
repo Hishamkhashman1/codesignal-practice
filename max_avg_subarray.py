@@ -14,14 +14,21 @@ nums = [1,12,-5,-6,50,3]
 k = 4
 
 def solution(nums,k):
+    max_sums = []
+
+    if k == 1:
+        return max(nums)
+
+    for i in range (len(nums)-3):
+        sums = sum(nums[i:(i + k)])
+
+        if sums not in max_sums:
+            max_sums.append(sums)
+
+    return max(max_sums, default=0) / 4
 
 
-    nums.sort(key=abs, reverse=True)
-    print (nums)
-
-    output = sum(nums[0:(k-1)]) // k
 
 
-    return output
 
 print (solution(nums,k))
