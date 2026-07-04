@@ -19,16 +19,18 @@ def solution(nums,k):
     if k == 1:
         return max(nums)
 
-    for i in range (len(nums)-3):
+    for i in range (len(nums)- k + 1):
         sums = sum(nums[i:(i + k)])
 
         if sums not in max_sums:
             max_sums.append(sums)
 
-    return max(max_sums, default=0) / 4
+    return max(max_sums, default=0) / k
 
 
 
 
 
 print (solution(nums,k))
+
+# next challenge will be making it o(n)
