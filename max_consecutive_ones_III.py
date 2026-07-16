@@ -30,3 +30,16 @@
 nums = [1,1,1,0,0,0,1,1,1,1,0]
 k = 2
 
+# rough idea count continuos ones and k to longest 1
+
+def solution(nums, k):
+    count = 0
+    for n in nums:
+        if n == "1":
+            count += 1
+        else:
+            continue
+
+print (solution(nums,k))
+
+
