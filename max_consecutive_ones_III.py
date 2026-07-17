@@ -33,12 +33,22 @@ k = 2
 # rough idea count continuos ones and k to longest 1
 
 def solution(nums, k):
+    count_ls = []
     count = 0
-    for n in nums:
-        if n == "1":
+
+    for i in range (len(nums)):
+        if nums[i] == 1:
             count += 1
+            count_ls.append(count)
         else:
-            continue
+            count = 0
+            count_ls.append(count)
+
+            # count how many zeros between ones if 
+
+        print (count_ls)
+
+    return max(count_ls) + k
 
 print (solution(nums,k))
 
