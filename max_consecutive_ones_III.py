@@ -27,29 +27,50 @@
 # 1 <= nums.length <= 105
 # nums[i] is either 0 or 1.
 # 0 <= k <= nums.length
-nums = [1,1,1,0,0,0,1,1,1,1,0]
-k = 2
+#nums = [1,1,1,0,0,0,1,1,1,1,0]
+#k = 2
+
+nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
+k = 3
+
 
 # rough idea count continuos ones and k to longest 1
 
+# def solution(nums, k):
+#     count_ls = []
+#     count = 0
+
+#     for i in range (len(nums)):
+#         if nums[i] == 1:
+#             count += 1
+#             count_ls.append(count)
+#         else:
+#             count = 0
+#             count_ls.append(count)
+
+#             # count how many zeros between ones if
+
+#         print (count_ls)
+
+#     return max(count_ls) + k
+
+# print (solution(nums,k))
+
+
 def solution(nums, k):
-    count_ls = []
-    count = 0
+    left = 0
+    max_length = 0
+    zero_count = 0
 
-    for i in range (len(nums)):
-        if nums[i] == 1:
-            count += 1
-            count_ls.append(count)
-        else:
-            count = 0
-            count_ls.append(count)
+    for right in range(len(nums)):
+        if nums[right] == 0:
+            zero_count += 1
 
-            # count how many zeros between ones if 
+        while zero_count > k:
+            if nums[left] == 0:
+                zero_count -= 1
+            left += 1
 
-        print (count_ls)
+        max_length = max(max_length, right - left + 1)
 
-    return max(count_ls) + k
-
-print (solution(nums,k))
-
-
+    return max_length
