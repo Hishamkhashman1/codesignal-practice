@@ -32,16 +32,16 @@
 # 1 <= nums.length <= 105
 # nums[i] is either 0 or 1.
 
-#nums = [0,1,1,1,0,1,1,0,1]
+nums = [0,1,1,1,0,1,1,0,1]
 
-nums = [1,1,0,1]
+#nums = [1,1,0,1]
 
 def solution(nums):
     count = 0
-    for i in range (len(nums)):
+    for i in range (len(nums)-1):
         if nums[i] ==0 and nums[i-1] == 1 and nums [i+1] == 1:
             count += 1
-
+    print (count)
     return (len(nums) - count)
 
 print (solution(nums))
